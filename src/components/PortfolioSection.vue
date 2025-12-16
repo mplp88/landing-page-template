@@ -6,7 +6,7 @@
       <div class="grid md:grid-cols-3 gap-6">
         <div
           v-for="i in 3"
-          class="h-96 w-64 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500"
+          class="h-64 w-64 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500"
         >
           Project preview
         </div>

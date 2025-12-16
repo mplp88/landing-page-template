@@ -2,6 +2,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
 }
 
 body {
@@ -12,5 +13,11 @@ body {
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 4rem;
   }
 }
