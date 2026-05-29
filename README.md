@@ -1,44 +1,89 @@
-# landing-page-template
+# Professional Vue Landing Page
 
-This template should help get you started developing with Vue 3 in Vite.
+Modern and responsive landing page template built with Vue 3, Vite and TailwindCSS.
+Designed as a clean starter template for freelancers, agencies, portfolios, SaaS products and small business websites.
 
-## Recommended IDE Setup
+🌐 Live Demo: https://professional-vue-landing.netlify.app/
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Recommended Browser Setup
+## ✨ Features
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+* Responsive modern UI
+* Built with Vue 3 + Vite
+* TailwindCSS styling
+* Reusable component structure
+* Smooth and clean layout sections
+* Ready for deployment on Netlify/Vercel
+* Easy customization for client projects
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 🛠️ Tech Stack
 
-## Project Setup
+* Vue 3
+* Vite
+* TailwindCSS
+* Vue Router
+* Pinia
+* ESLint + Prettier
 
-```sh
+---
+
+## 📂 Project Structure
+
+```bash
+src/
+ ├── components/
+ ├── views/
+ ├── router/
+ ├── stores/
+ └── assets/
+```
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+```
+
+Install dependencies:
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Run development server:
 
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+Build for production:
 
-```sh
+```bash
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+---
 
-```sh
-npm run lint
-```
+## 🎯 Purpose
+
+This project was created as a reusable landing page template for freelance work, portfolio projects and business websites, focusing on clean design, maintainability and fast deployment.
+
+---
+
+## 📸 Preview
+
+![Preview](./public/preview.png)
+
+---
+
+## 👨‍💻 Author
+
+Martín Alejandro Ponce
+Full Stack Developer — .NET | Node.js | Vue.js
