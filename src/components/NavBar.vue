@@ -1,118 +1,126 @@
 <template>
-  <nav
-    class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 md:h-20">
-        <!-- Logo / Brand -->
-        <div class="flex-shrink-0">
-          <div class="flex items-center gap-2">
-            <div
-              class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center"
-            >
-              <span class="text-white font-bold text-lg overflow-hidden">L</span>
-            </div>
-            <span
-              class="hidden sm:inline font-bold text-lg bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-700"
-            >
-              Landing
-            </span>
-          </div>
-        </div>
+  <header class="fixed inset-x-0 top-0 z-50">
+    <nav
+      class="border-b border-white/8 bg-[#090b14]/85 shadow-lg shadow-black/5 backdrop-blur-xl"
+      aria-label="Main navigation"
+    >
+      <div
+        class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-10 lg:h-20 lg:px-8"
+      >
+        <a
+          href="#hero"
+          class="group flex items-center gap-3"
+          aria-label="Landing home"
+          @click="closeMenu"
+        >
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-violet-400 to-indigo-600 text-lg font-bold text-white shadow-lg shadow-violet-500/20 transition duration-300 group-hover:rotate-3 group-hover:scale-105"
+          >
+            L
+          </span>
+          <span class="text-lg font-semibold tracking-tight text-white">
+            Landing<span class="text-violet-300">.</span>
+          </span>
+        </a>
 
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center gap-1">
+        <div class="hidden items-center gap-1 md:flex">
           <a
             v-for="item in items"
             :key="item.id"
             :href="`#${item.id}`"
-            class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 relative group"
+            class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-400 transition duration-200 hover:text-white lg:px-4"
           >
             {{ item.label }}
-            <span
-              class="absolute bottom-0 left-4 right-4 h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
-            ></span>
           </a>
         </div>
 
-        <!-- CTA Button (Desktop) -->
-        <div class="hidden md:flex items-center gap-3">
-          <a
-            href="#contact"
-            class="px-6 py-2.5 rounded-lg font-medium text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-200 transform hover:scale-105"
-          >
-            Get Started
-          </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button
-          @click="mobileMenuOpen = !mobileMenuOpen"
-          class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-          aria-label="Toggle menu"
+        <a
+          href="#contact"
+          class="hidden items-center gap-2 rounded-xl bg-violet-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/15 transition duration-300 hover:-translate-y-0.5 hover:bg-violet-400 hover:shadow-violet-500/25 focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-violet-400 md:inline-flex"
         >
+          Let's talk
           <svg
-            class="w-6 h-6 text-gray-700 transition-transform duration-300"
-            :class="{ 'rotate-90': mobileMenuOpen }"
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            viewBox="0 0 24 24"
+            stroke-width="2"
+            aria-hidden="true"
           >
-            <path
-              v-if="!mobileMenuOpen"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-            <path
-              v-else
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
+            <path d="M7 17 17 7M7 7h10v10" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+
+        <button
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-slate-200 transition hover:bg-white/5 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-violet-400 md:hidden"
+          :aria-expanded="mobileMenuOpen"
+          aria-controls="mobile-navigation"
+          :aria-label="mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+        >
+          <svg
+            v-if="!mobileMenuOpen"
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+
+          <svg
+            v-else
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="m6 6 12 12M18 6 6 18" />
           </svg>
         </button>
       </div>
 
-      <!-- Mobile Navigation -->
-      <transition
+      <Transition
         enter-active-class="transition duration-200 ease-out"
         enter-from-class="opacity-0 -translate-y-2"
         enter-to-class="opacity-100 translate-y-0"
-        leave-active-class="transition duration-200 ease-in"
+        leave-active-class="transition duration-150 ease-in"
         leave-from-class="opacity-100 translate-y-0"
         leave-to-class="opacity-0 -translate-y-2"
       >
         <div
           v-if="mobileMenuOpen"
-          class="md:hidden border-t border-gray-100 bg-gray-50/50 backdrop-blur-sm"
+          id="mobile-navigation"
+          class="border-t border-white/8 bg-[#0d101b]/98 px-6 pb-5 pt-3 backdrop-blur-xl md:hidden"
         >
-          <div class="px-4 py-4 space-y-2">
-            <a
-              v-for="item in items"
-              :key="item.id"
-              :href="`#${item.id}`"
-              @click="mobileMenuOpen = false"
-              class="block px-4 py-3 rounded-lg text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
-            >
-              {{ item.label }}
-            </a>
-            <div class="border-t border-gray-200 pt-3 mt-2">
-              <a
-                href="#contact"
-                @click="mobileMenuOpen = false"
-                class="block px-4 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-200 text-center"
-              >
-                Get Started
-              </a>
-            </div>
-          </div>
+          <a
+            v-for="item in items"
+            :key="item.id"
+            :href="`#${item.id}`"
+            class="block rounded-xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-white"
+            @click="closeMenu"
+          >
+            {{ item.label }}
+          </a>
+
+          <a
+            href="#contact"
+            class="mt-3 flex items-center justify-center rounded-xl bg-violet-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-violet-400"
+            @click="closeMenu"
+          >
+            Let's talk
+          </a>
         </div>
-      </transition>
-    </div>
-  </nav>
+      </Transition>
+    </nav>
+  </header>
 </template>
 
 <script setup>
@@ -121,19 +129,42 @@ import { ref } from 'vue'
 const mobileMenuOpen = ref(false)
 
 const items = [
-  { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'services', label: 'Services' },
-  { id: 'portfolio', label: 'Projects' },
+  { id: 'portfolio', label: 'Portfolio' },
   { id: 'contact', label: 'Contact' },
 ]
+
+const closeMenu = () => {
+  mobileMenuOpen.value = false
+}
 </script>
 
 <style scoped>
-/* Optional: Add custom animations if needed */
-@media (max-width: 768px) {
-  :deep(nav) {
-    padding-right: 0;
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.3rem;
+  left: 1rem;
+  height: 1px;
+  content: '';
+  background: #a78bfa;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link::after {
+    transition: none;
   }
 }
 </style>
