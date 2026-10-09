@@ -1,3 +1,4 @@
+<!-- HomeView.vue -->
 <template>
   <Navbar />
   <main class="pt-16">
